@@ -19,9 +19,8 @@ instances with minimal hassle.
 
 First of all you will want to create an instance of the object pool:
 
-'''
-var pool:ObjectPool = new ObjectPool(**prefetchCount**);
-'''
+`var pool:ObjectPool = new ObjectPool(**prefetchCount**);`
+
 
 The prefetchCount is used to decide how many instances to create if there are no more
 instances left in the pool.
@@ -36,11 +35,11 @@ Now that the ObjectPool is setup, we can use it!
 
 Here is an example of getting an item from the pool:
 
-'''
+```
 var point:Point = pool.fetch(Point);
 trace(point.x) // "0"
 trace(point.y) // "0"
-'''
+```
 
 At this stage, the variable "point" will be recycled and reset to its default values (in as3.geom.Point
 it will be x:0,y:0).
@@ -53,9 +52,9 @@ Aha I caught you off guard! I don't have any advice for how you use your object,
 
 When you want to return your object to the pool simply:
 
-'''
-pool.recycle(point);
-'''
+
+`pool.recycle(point);`
+
 
 And the point will be recycled and sent back to the pool.
 
@@ -69,18 +68,18 @@ you can make your object implement the "ICustomPoolable" interface.
 
 For example:
 
-'''
+```
 public function onPooled():void{
 this.database.disconnect();
 this.connection = Connections.getCurrentLegalConnection();
 }
-'''
+```
 
 (note: I have no idea what my scenario is above is about, but you get the idea. Custom recycle behaviour!).
 
 ### Full example
 
-'''
+```
 
 			var pool:ObjectPool = new ObjectPool(1);
 			
@@ -93,7 +92,7 @@ this.connection = Connections.getCurrentLegalConnection();
 			
 			pool.clearAllPoolLists();
 			
-'''
+```
 
 As I decided I did not want to use the pool anymore, I cleared all of the lists inside it
 at the end.
