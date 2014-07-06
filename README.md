@@ -69,12 +69,32 @@ you can make your object implement the "ICustomPoolable" interface.
 
 For example:
 
+'''
 public function onPooled():void{
 this.database.disconnect();
 this.connection = Connections.getCurrentLegalConnection();
 }
+'''
 
 (note: I have no idea what my scenario is above is about, but you get the idea. Custom recycle behaviour!).
 
+### Full example
 
+'''
+			var pool:ObjectPool = new ObjectPool(1);
+			
+			for (var i:int = 0; i < 100; i++)
+			{
+				var p:Point= pool.fetch(Point);
+				pool.recycle(p);
+				
+			}
+			
+			pool.clearAllPoolLists();
+'''
+
+As I decided I did not want to use the pool anymore, I cleared all of the lists inside it
+at the end.
+
+For the above example, only 1 instance of "Point" was created but it was re-used 100 times.
 
