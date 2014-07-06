@@ -97,6 +97,9 @@ this.connection = Connections.getCurrentLegalConnection();
 			for (var i:int = 0; i < 100; i++)
 			{
 				var p:Point= pool.fetch(Point);
+				
+				doSomething(p);
+				
 				pool.recycle(p);
 				
 			}
