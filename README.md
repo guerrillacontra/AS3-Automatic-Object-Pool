@@ -81,6 +81,7 @@ this.connection = Connections.getCurrentLegalConnection();
 ### Full example
 
 '''
+
 			var pool:ObjectPool = new ObjectPool(1);
 			
 			for (var i:int = 0; i < 100; i++)
@@ -91,6 +92,7 @@ this.connection = Connections.getCurrentLegalConnection();
 			}
 			
 			pool.clearAllPoolLists();
+			
 '''
 
 As I decided I did not want to use the pool anymore, I cleared all of the lists inside it
