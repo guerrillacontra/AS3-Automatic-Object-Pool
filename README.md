@@ -13,6 +13,17 @@ is to simply re-use instances and block them from garbage collection.
 An object pool allows you to manage the fetching and recyling aspects in your code, so that you can re-use
 instances with minimal hassle.
 
+This object pool supports multiple types of objects in a single pool.
+
+```
+pool.fetch(Point);
+pool.fetch(Enemy);
+poo.fetch(Player);
+```
+
+It supports sub-lists of types so it is very easy to work with.
+
+
 ## How To use
 
 ### Setup
