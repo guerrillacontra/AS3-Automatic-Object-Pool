@@ -18,7 +18,7 @@ This object pool supports multiple types of objects in a single pool.
 ```
 pool.fetch(Point);
 pool.fetch(Enemy);
-poo.fetch(Player);
+pool.fetch(Player);
 ```
 
 It supports sub-lists of types so it is very easy to work with.
