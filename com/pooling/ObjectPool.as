@@ -1,5 +1,5 @@
 /**
- * Created by James Wrightson http://www.earthshatteringcode.com
+ * Created by James Weightson http://www.earthshatteringcode.com
  */
 package com.pooling
 {
@@ -110,7 +110,7 @@ package com.pooling
 		public function isFromPool(object:Object):Boolean
 		{
 			var poolList:ObjectPoolList = _pools[object.constructor];
-			return poolList.isFromPool(object);
+			return poolList && poolList.isFromPool(object);
 		}
 		
 		private var _pools:Dictionary = new Dictionary();
