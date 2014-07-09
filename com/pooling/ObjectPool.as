@@ -80,6 +80,16 @@ package com.pooling
 			poolList.recycle(object);
 		}
 		
+		
+		[Inline]
+        public function tryRecycle(object:Object):void
+        {
+            if(isFromPool(object))
+            {
+                recycle(object);
+            }
+        }
+		
 		/**
 		 * Clear a specific pool based on its type as if it where
 		 * never created.
